@@ -1,7 +1,9 @@
-[gd_scene load_steps=16 format=4 uid="uid://ckft3jmndmfsm"]
+[gd_scene load_steps=18 format=4 uid="uid://ckft3jmndmfsm"]
 
 [ext_resource type="Texture2D" uid="uid://pk41iy74vvv7" path="res://novo_fundo/fundo_vazio.png" id="1_t2fe4"]
 [ext_resource type="Texture2D" uid="uid://bt5kl1kd3g076" path="res://novo_fundo/fundo_vazio_2.png" id="2_rs0id"]
+[ext_resource type="Texture2D" uid="uid://ipwjmgh0qbfj" path="res://obstaculos_do_jogo/porta_barrada.png" id="7_pbqkh"]
+[ext_resource type="Texture2D" uid="uid://ckesqpfgh7ooe" path="res://obstaculos_do_jogo/porta_barrada_2.png" id="8_daslb"]
 [ext_resource type="Script" path="res://Scenes/player.gd" id="8_ff1a0"]
 [ext_resource type="Texture2D" uid="uid://bhijyy43voxgg" path="res://itens_do_jogo/machado.png" id="11_4wqui"]
 [ext_resource type="PackedScene" uid="uid://dhexqf6j4t5jv" path="res://inventario/inventory.tscn" id="11_g5v41"]
@@ -800,7 +802,7 @@ size = Vector2(384, 128)
 size = Vector2(384, 256)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fcdmy"]
-size = Vector2(7, 18)
+size = Vector2(16, 26)
 
 [node name="Node2D" type="Node2D"]
 
@@ -859,6 +861,24 @@ texture = ExtResource("11_4wqui")
 [node name="Sprite2D2" type="Sprite2D" parent="itens/machado"]
 z_index = -1
 texture = ExtResource("14_vsegx")
+
+[node name="obstaculos_cenario" type="Node2D" parent="."]
+
+[node name="porta" type="Area2D" parent="obstaculos_cenario"]
+position = Vector2(832, 64)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstaculos_cenario/porta"]
+position = Vector2(-32, -29)
+shape = SubResource("RectangleShape2D_fcdmy")
+
+[node name="Sprite2D" type="Sprite2D" parent="obstaculos_cenario/porta"]
+texture_filter = 1
+texture = ExtResource("7_pbqkh")
+
+[node name="Sprite2D2" type="Sprite2D" parent="obstaculos_cenario/porta"]
+z_index = -1
+texture = ExtResource("8_daslb")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
