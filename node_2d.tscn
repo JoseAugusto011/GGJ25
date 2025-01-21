@@ -1,0 +1,102 @@
+[gd_scene load_steps=12 format=3 uid="uid://bhx0pkkc5kpi"]
+
+[ext_resource type="Script" path="res://batalha.gd" id="1_o3nje"]
+[ext_resource type="Texture2D" uid="uid://djc7xnsd7labi" path="res://monstros/disco_voador_piskel.png" id="2_ncaws"]
+[ext_resource type="Texture2D" uid="uid://b2sbxof4rmomh" path="res://monstros/gemeos_piskel.png" id="3_f08c7"]
+[ext_resource type="Texture2D" uid="uid://c24kgm8wu837m" path="res://monstros/bicho_piskel.png" id="4_1h401"]
+[ext_resource type="Texture2D" uid="uid://c2q3hm3uedwbe" path="res://monstros/losango_piskel.png" id="4_svx28"]
+[ext_resource type="Texture2D" uid="uid://biqmppomcw6ju" path="res://monstros/quadrado_piskel.png" id="5_2ppgo"]
+[ext_resource type="Texture2D" uid="uid://d3prmdyk5kxgh" path="res://monstros/seta_piskel.png" id="6_2hlfa"]
+[ext_resource type="Texture2D" uid="uid://cmrn5trulsli6" path="res://monstros/player_rei_2.png" id="7_hhms0"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6j78y"]
+load_path = "res://.godot/imported/fundo_rpg.png-df16dae8672f51138d63de04ed6eda02.ctex"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_66efl"]
+texture = SubResource("CompressedTexture2D_6j78y")
+texture_region_size = Vector2i(22, 22)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_8ee0t"]
+tile_size = Vector2i(22, 22)
+sources/1 = SubResource("TileSetAtlasSource_66efl")
+
+[node name="batalha" type="Node2D"]
+script = ExtResource("1_o3nje")
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+tile_set = SubResource("TileSet_8ee0t")
+rendering_quadrant_size = 22
+format = 2
+layer_0/tile_data = PackedInt32Array(-1, 1, 3, 65535, 1, 4, 131071, 1, 1, 196607, 1, 3, -65536, 65537, 1, -65535, 65537, 1, -65534, 65537, 1, 0, 65537, 1, 1, 65537, 1, 65537, 65537, 1, 131074, 65537, 1, 131073, 65537, 1, 131072, 65537, 1, 65536, 65537, 1, 65538, 65537, 1, 2, 65537, 1, -65533, 65537, 3, 3, 65537, 4, 65539, 131073, 1, 131075, 65537, 3, 196611, 65537, 4, 262143, 1, 4, 327682, 65537, 1, 327681, 65537, 1, 327680, 65537, 1, 262144, 65537, 1, 196608, 65537, 1, 196609, 65537, 1, 196610, 65537, 1, 262146, 65537, 1, 262145, 65537, 1, 327683, 65537, 3, 393219, 65537, 4, 393215, 1, 3, 458751, 1, 4, 327679, 1, 1, 262147, 131073, 1, 393216, 65537, 1, 393217, 65537, 1, 393218, 65537, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(33, 33)
+zoom = Vector2(5, 5)
+
+[node name="DiscoVoadorPiskel" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(11, 11)
+texture = ExtResource("2_ncaws")
+hframes = 4
+
+[node name="GemeosPiskel" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(33, 11)
+texture = ExtResource("3_f08c7")
+hframes = 4
+
+[node name="LosangoPiskel" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(55, 11)
+texture = ExtResource("4_svx28")
+hframes = 4
+
+[node name="BichoPiskel" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(11, 55)
+texture = ExtResource("4_1h401")
+hframes = 4
+
+[node name="QuadradoPiskel" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(55, 55)
+texture = ExtResource("5_2ppgo")
+hframes = 4
+
+[node name="SetaPiskel" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(33, 55)
+texture = ExtResource("6_2hlfa")
+hframes = 4
+
+[node name="PlayerRei2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(33, -11)
+texture = ExtResource("7_hhms0")
+hframes = 9
