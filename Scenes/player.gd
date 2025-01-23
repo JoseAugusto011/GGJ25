@@ -1,8 +1,20 @@
 extends Area2D
 
 
-var Matrix = [ [1,1,1,1,1,1,1,1,1], [1,0,0,0,0,0,0,0,1], [1,0,1,1,1,1,1,0,1], [1,0,1,0,0,0,1,0,1],
- [1,0,0,0,1,0,0,0,1], [1,0,1,0,0,0,1,0,1], [1,0,1,1,1,1,1,0,1], [1,0,0,0,0,0,0,0,1], [1,1,1,1,1,1,1,1,1]] 
+"""var Matrix = [ [1,1,1,1,1,1,1,1,1], [1,0,0,0,0,0,0,0,1], [1,0,1,1,1,1,1,0,1], [1,0,1,0,0,0,1,0,1],
+ [1,0,0,0,1,0,0,0,1], [1,0,1,0,0,0,1,0,1], [1,0,1,1,1,1,1,0,1], [1,0,0,0,0,0,0,0,1], [1,1,1,1,1,1,1,1,1]]"""
+
+"""var Matrix_cima_baixo = [ [1,1,1,1,1,1,1], [0,1,1,1,1,1,0], [0,1,1,1,1,1,0], [0,1,0,1,0,1,0],
+ [0,1,0,1,0,1,0], [0,1,1,1,1,1,0], [0,1,1,1,1,1,0], [1,1,1,1,1,1,1]]
+
+var Matrix_esquerda_direita = [ [1,1,1,1,1,1,1], [0,1,1,0,1,1,0], [0,1,1,0,1,1,0], [0,1,0,1,0,1,0],
+ [0,1,0,1,0,1,0], [0,1,1,0,1,1,0], [0,1,1,0,1,1,0], [1,1,1,1,1,1,1]]"""
+
+
+var Matrix_cima_baixo = Matrizes.Matrix_cb
+
+var Matrix_esquerda_direita = Matrizes.Matrix_ed
+ 
 #
 #	começa Matrix[1][1]
 #0 e (1,0)
@@ -27,7 +39,7 @@ func InputMovement():
 		# Se o ponto cardeal for dois -> camera.yBase += 384
 		# Se o ponto cardeal for três -> camera.xBase -= 384 * 4
 		
-		if PontoCardeal == 0:
+		'''if PontoCardeal == 0:
 			if Matrix[yBase-1][xBase] == 0:
 				yBase -= 1
 				$".".position.y = position.y - 128
@@ -42,6 +54,23 @@ func InputMovement():
 		if PontoCardeal == 3:
 			if Matrix[yBase][xBase-1] == 0:
 				xBase -= 1
+				$".".position.x = position.x - 128'''
+				
+		if PontoCardeal == 0:
+			if Matrix_cima_baixo[yBase-1][xBase-1] == 0:
+				yBase -= 1
+				$".".position.y = position.y - 128
+		if PontoCardeal == 1:
+			if Matrix_esquerda_direita[xBase][yBase-1] == 0:
+				xBase += 1
+				$".".position.x = position.x + 128
+		if PontoCardeal == 2:
+			if Matrix_cima_baixo[yBase][xBase-1] == 0:
+				yBase += 1
+				$".".position.y = position.y + 128
+		if PontoCardeal == 3:
+			if Matrix_esquerda_direita[xBase-1][yBase-1] == 0:
+				xBase -= 1
 				$".".position.x = position.x - 128
 			
 			
@@ -49,13 +78,14 @@ func InputMovement():
 			#$".".position.y = position.y + 128
 			#$".".position.x = 384 * (PontoCardeal + xBase * 4)
 			#$".".position.x = 384 * (PontoCardeal + xBase * 4)
-			print("Frente ",PontoCardeal)
+		#print("Frente ",PontoCardeal)
+
 	else: 
 		pass
 		
 	if Input.is_action_just_pressed("Atras"):
 		PontoCardeal+=2
-		print("Atras")
+		#print("Atras")
 		PontoCardeal %= 4
 		
 		$".".rotation = PontoCardeal * 3.14 / 2
@@ -76,7 +106,7 @@ func InputMovement():
 			
 	if Input.is_action_just_pressed("Direita"):
 		PontoCardeal+=1
-		print("Direita")
+		#print("Direita")
 		PontoCardeal %= 4
 		
 		$".".rotation = PontoCardeal * 3.14 / 2
@@ -93,7 +123,7 @@ func InputMovement():
 
 	if Input.is_action_just_pressed("Esquerda"):
 		PontoCardeal+=3
-		print("Esquerda")
+		#print("Esquerda")
 		PontoCardeal %= 4
 		
 		$".".rotation = PontoCardeal * 3.14 / 2
@@ -108,7 +138,7 @@ func InputMovement():
 			$".".position.y = position.y + 64
 		
 		
-	if PontoCardeal == 0:
+	"""if PontoCardeal == 0:
 		if Matrix[yBase-1][xBase] == 1:
 			get_node("sem_murro").disabled= true
 			get_node("sem_murro_2").disabled= true
@@ -143,7 +173,7 @@ func InputMovement():
 		else:
 			get_node("sem_murro").disabled= false
 			get_node("sem_murro_2").disabled= false
-			get_node("com_murro").disabled= true
+			get_node("com_murro").disabled= true"""
 	
 	
 	#$".".position.x = 384 * (PontoCardeal + xBase * 4)
