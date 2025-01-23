@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6bployf501b0"
-path="res://.godot/imported/fundo_vazio.png-a6aeaa1aa9aa08999c06afcc2a9c3334.ctex"
+uid="uid://0vcjbn764dun"
+path="res://.godot/imported/circulos.png-49a63a7b6620059e639169ebc96bf09f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://itens_do_jogo/fundo_vazio.png"
-dest_files=["res://.godot/imported/fundo_vazio.png-a6aeaa1aa9aa08999c06afcc2a9c3334.ctex"]
+source_file="res://Scenes/circulos.png"
+dest_files=["res://.godot/imported/circulos.png-49a63a7b6620059e639169ebc96bf09f.ctex"]
 
 [params]
 

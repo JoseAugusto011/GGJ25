@@ -1,10 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://cpeyfs8gednxy"]
 
-[ext_resource type="Texture2D" uid="uid://fmvsgpuyxh3u" path="res://slot_inventario.png" id="1_ygu72"]
+[ext_resource type="Texture2D" uid="uid://deyl6gfnqy13a" path="res://inventario/bolha_inventario.png" id="1_ibjay"]
 [ext_resource type="Script" path="res://inventario/slot_container.gd" id="2_rw5f3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v2slw"]
-texture = ExtResource("1_ygu72")
+texture = ExtResource("1_ibjay")
 
 [sub_resource type="LabelSettings" id="LabelSettings_a5s26"]
 line_spacing = 2.0
