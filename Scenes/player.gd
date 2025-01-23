@@ -186,5 +186,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	if Matrizes.aero:
+		if ((xBase > 1) and (xBase < 7)) and ((yBase > 1) and (yBase < 7)):
+			$bolhas.visible = true
+			$bolhas.play("default")
+		else:
+			$bolhas.visible = false
+			$bolhas.pause()
 	
 	InputMovement()

@@ -1,4 +1,4 @@
+res://obstaculos_do_jogo/quado.gd
 res://Scenes/node_2d.tscn
 res://Scenes/matrizes.gd
 res://Scenes/player.gd
-res://obstaculos_do_jogo/porta_chave.gd
