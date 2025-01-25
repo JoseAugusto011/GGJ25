@@ -19,8 +19,12 @@ var Matrix_esquerda_direita = Matrizes.Matrix_ed
 #	começa Matrix[1][1]
 #0 e (1,0)
 var PontoCardeal = 0
+var cardeal_x = 0
+var cardeal_y = 0
 var xBase = 1 # Aperta pra frente altera esse valor
 var yBase = 1
+var x_extra = 0
+
 
 # Norte = 0 Leste = 1 Sul = 2 oeste = 3 -> Move sentido leste Horário,oeste antihorário, para trás
 
@@ -57,21 +61,24 @@ func InputMovement():
 				$".".position.x = position.x - 128'''
 				
 		if PontoCardeal == 0:
-			if Matrix_cima_baixo[yBase-1][xBase-1] == 0:
+			if Matrix_cima_baixo[yBase-1][xBase+x_extra-1] == 0:
 				yBase -= 1
-				$".".position.y = position.y - 128
+				#$".".position.y = position.y - 128
 		if PontoCardeal == 1:
-			if Matrix_esquerda_direita[xBase][yBase-1] == 0:
+			if Matrix_esquerda_direita[xBase+x_extra][yBase-1] == 0:
 				xBase += 1
-				$".".position.x = position.x + 128
+				#$".".position.x = position.x + 128
 		if PontoCardeal == 2:
-			if Matrix_cima_baixo[yBase][xBase-1] == 0:
+			if Matrix_cima_baixo[yBase][xBase+x_extra-1] == 0:
 				yBase += 1
-				$".".position.y = position.y + 128
+				#$".".position.y = position.y + 128
 		if PontoCardeal == 3:
-			if Matrix_esquerda_direita[xBase-1][yBase-1] == 0:
+			if Matrix_esquerda_direita[xBase+x_extra-1][yBase-1] == 0:
 				xBase -= 1
-				$".".position.x = position.x - 128
+				#$".".position.x = position.x - 128
+		
+		$".".position.x = (xBase+x_extra)*128 -96 + cardeal_x
+		$".".position.y = yBase*128 -96 + cardeal_y
 			
 			
 			
@@ -91,17 +98,27 @@ func InputMovement():
 		$".".rotation = PontoCardeal * 3.14 / 2
 		
 		if PontoCardeal == 0:
-			$".".position.x = position.x - 64
-			$".".position.y = position.y - 64
+			#$".".position.x = position.x - 64
+			#$".".position.y = position.y - 64
+			cardeal_x = 0
+			cardeal_y = 0
 		if PontoCardeal == 1:
-			$".".position.x = position.x + 64
-			$".".position.y = position.y - 64
+			#$".".position.x = position.x + 64
+			#$".".position.y = position.y - 64
+			cardeal_x = 64
+			cardeal_y = 0
 		if PontoCardeal == 2:
-			$".".position.x = position.x + 64
-			$".".position.y = position.y + 64
+			#$".".position.x = position.x + 64
+			#$".".position.y = position.y + 64
+			cardeal_x = 64
+			cardeal_y = 64
 		if PontoCardeal == 3:
-			$".".position.x = position.x - 64
-			$".".position.y = position.y + 64
+			#$".".position.x = position.x - 64
+			#$".".position.y = position.y + 64
+			cardeal_x = 0
+			cardeal_y = 64
+		$".".position.x = (xBase+x_extra)*128 -96 + cardeal_x
+		$".".position.y = yBase*128 -96 + cardeal_y
 			
 			
 	if Input.is_action_just_pressed("Direita"):
@@ -112,13 +129,19 @@ func InputMovement():
 		$".".rotation = PontoCardeal * 3.14 / 2
 		
 		if PontoCardeal == 0:
-			$".".position.y = position.y - 64
+			#$".".position.y = position.y - 64
+			cardeal_y = 0
 		if PontoCardeal == 1:
-			$".".position.x = position.x + 64
+			#$".".position.x = position.x + 64
+			cardeal_x = 64
 		if PontoCardeal == 2:
-			$".".position.y = position.y + 64
+			#$".".position.y = position.y + 64
+			cardeal_y = 64
 		if PontoCardeal == 3:
-			$".".position.x = position.x - 64
+			#$".".position.x = position.x - 64
+			cardeal_x = 0
+		$".".position.x = (xBase+x_extra)*128 -96 + cardeal_x
+		$".".position.y = yBase*128 -96 + cardeal_y
 		
 
 	if Input.is_action_just_pressed("Esquerda"):
@@ -129,13 +152,19 @@ func InputMovement():
 		$".".rotation = PontoCardeal * 3.14 / 2
 		
 		if PontoCardeal == 0:
-			$".".position.x = position.x - 64
+			#$".".position.x = position.x - 64
+			cardeal_x = 0
 		if PontoCardeal == 1:
-			$".".position.y = position.y - 64
+			#$".".position.y = position.y - 64
+			cardeal_y = 0
 		if PontoCardeal == 2:
-			$".".position.x = position.x + 64
+			#$".".position.x = position.x + 64
+			cardeal_x = 64
 		if PontoCardeal == 3:
-			$".".position.y = position.y + 64
+			#$".".position.y = position.y + 64
+			cardeal_y = 64
+		$".".position.x = (xBase+x_extra)*128 -96 + cardeal_x
+		$".".position.y = yBase*128 -96 + cardeal_y
 		
 		
 	"""if PontoCardeal == 0:
@@ -186,12 +215,27 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if Matrizes.aero:
-		if ((xBase > 1) and (xBase < 7)) and ((yBase > 1) and (yBase < 7)):
-			$bolhas.visible = true
-			$bolhas.play("default")
-		else:
-			$bolhas.visible = false
-			$bolhas.pause()
+	if x_extra == 3:
+		$bolhas.visible = true
+		$bolhas.play("default")
+		$circulos_base.visible = false
+	else:
+		$bolhas.visible = false
+		$bolhas.pause()
+		$circulos_base.visible = true
 	
 	InputMovement()
+
+
+func _on_button_pressed() -> void:
+	x_extra = 0
+	$".".position.x = (xBase+x_extra)*128 -96 + cardeal_x
+
+
+
+
+func _on_button_2_pressed() -> void:
+	x_extra = 3
+	$".".position.x = (xBase+x_extra)*128 -96 + cardeal_x
+	
+	

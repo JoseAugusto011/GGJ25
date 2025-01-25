@@ -1,2 +1,3 @@
 res://Scenes/node_2d.tscn
-res://Scenes/circulos_escuros.gd
+res://Scenes/matrizes.gd
+res://Scenes/player.gd
