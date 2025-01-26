@@ -24,6 +24,7 @@ var cardeal_y = 0
 var xBase = 1 # Aperta pra frente altera esse valor
 var yBase = 1
 var x_extra = 0
+var y_extra = 0
 
 
 # Norte = 0 Leste = 1 Sul = 2 oeste = 3 -> Move sentido leste Horário,oeste antihorário, para trás
@@ -118,7 +119,7 @@ func InputMovement():
 			cardeal_x = 0
 			cardeal_y = 64
 		$".".position.x = (xBase+x_extra)*128 -96 + cardeal_x
-		$".".position.y = yBase*128 -96 + cardeal_y
+		$".".position.y = (yBase+y_extra)*128 -96 + cardeal_y
 			
 			
 	if Input.is_action_just_pressed("Direita"):
@@ -141,7 +142,7 @@ func InputMovement():
 			#$".".position.x = position.x - 64
 			cardeal_x = 0
 		$".".position.x = (xBase+x_extra)*128 -96 + cardeal_x
-		$".".position.y = yBase*128 -96 + cardeal_y
+		$".".position.y = (yBase+y_extra)*128 -96 + cardeal_y
 		
 
 	if Input.is_action_just_pressed("Esquerda"):
@@ -164,7 +165,7 @@ func InputMovement():
 			#$".".position.y = position.y + 64
 			cardeal_y = 64
 		$".".position.x = (xBase+x_extra)*128 -96 + cardeal_x
-		$".".position.y = yBase*128 -96 + cardeal_y
+		$".".position.y = (yBase+y_extra)*128 -96 + cardeal_y
 		
 		
 	"""if PontoCardeal == 0:
@@ -223,6 +224,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	
+	
 	if x_extra == 3:
 		$bolhas.visible = true
 		$bolhas.play("default")
@@ -231,7 +234,12 @@ func _process(_delta):
 		$bolhas.visible = false
 		$bolhas.pause()
 		$circulos_base.visible = true
-	
+	if y_extra > 0:
+		if Input.is_action_just_pressed("Atras") or Input.is_action_just_pressed("barra") or Input.is_action_just_pressed("Direita") or Input.is_action_just_pressed("Esquerda") or Input.is_action_just_pressed("Frente"):
+			y_extra = 0
+			$".".position.y = ((yBase+y_extra)*128 -96 + cardeal_y)
+					
+		
 	InputMovement()
 
 
@@ -271,3 +279,19 @@ func _on_porta_input_event(viewport: Node, event: InputEvent, shape_idx: int) ->
 				
 				
 	
+
+
+func _on_caixa_entrada_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if Input.is_action_just_pressed("click"):
+		print("____")
+		y_extra = 3
+		$".".position.y = ((yBase+y_extra)*128 -96 + cardeal_y)
+		
+
+
+func _on_caixa_saida_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if Input.is_action_just_pressed("click"):
+		print("__|__")
+		y_extra = 0
+		$".".position.y = ((yBase+y_extra)*128 -96 + cardeal_y)
+		

@@ -17,12 +17,19 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_5y2ne")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+offset_left = -7.0
+offset_top = 3.0
+offset_right = 53.0
+offset_bottom = 63.0
+color = Color(0.489666, 0.191165, 0.0180851, 1)
+
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 520.0
 offset_top = 8.0
-offset_right = 568.0
+offset_right = 48.0
 offset_bottom = 56.0
 script = ExtResource("2_qfwqn")
 
@@ -70,9 +77,9 @@ flat = true
 [node name="Control2" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 534.5
+offset_left = 14.5
 offset_top = 8.0
-offset_right = 582.5
+offset_right = 62.5
 offset_bottom = 56.0
 script = ExtResource("6_eq2i2")
 
@@ -120,9 +127,9 @@ flat = true
 [node name="Control3" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 549.0
+offset_left = 29.0
 offset_top = 8.0
-offset_right = 597.0
+offset_right = 77.0
 offset_bottom = 56.0
 script = ExtResource("7_ggagm")
 
