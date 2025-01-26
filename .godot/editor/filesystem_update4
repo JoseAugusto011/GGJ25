@@ -1,5 +1,3 @@
-res://Scenes/player.gd
 res://Scenes/node_2d.tscn
-res://Scenes/Sinos.tscn
-res://inventario/inventory.tscn
+res://Scenes/matrizes.gd
 res://mecanicas/senha.tscn
