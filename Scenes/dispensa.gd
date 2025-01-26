@@ -1,7 +1,6 @@
 extends Area2D
 
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -9,15 +8,14 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	pass
+
+
+func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	
-	
-	if Matrizes.portaDestruida and Matrizes.testura != null and Matrizes.soltou:
-		
-		# Pausa a execução por 2 segundos
-		#await get_tree().create_timer(2.0).timeout	
-		
+	if Input.is_action_just_pressed("click"):
 		$Sprite2D.frame = 1
-		Matrizes.Matrix_cb[1][2] = 0
-		
-		
-		
+		$CollisionShape2D.disabled = true
+		$AreaCopo.visible = true
+		print("Copo visible")
+		$AreaGarrafa.visible = true

@@ -1,6 +1,6 @@
 extends Area2D
 
-
+static var on_garrafa = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -9,15 +9,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
-	
-	if Matrizes.portaDestruida and Matrizes.testura != null and Matrizes.soltou:
-		
-		# Pausa a execução por 2 segundos
-		#await get_tree().create_timer(2.0).timeout	
-		
-		$Sprite2D.frame = 1
-		Matrizes.Matrix_cb[1][2] = 0
-		
-		
-		
+	pass
+
+
+func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if Input.is_action_just_pressed("click"):
+		print("Pegou copo")
+		on_garrafa = true
+		queue_free()

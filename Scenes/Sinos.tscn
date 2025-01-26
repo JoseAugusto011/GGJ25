@@ -1,26 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://m80srs4kcv70"]
+[gd_scene load_steps=6 format=3 uid="uid://m80srs4kcv70"]
 
 [ext_resource type="Script" path="res://Scenes/sino.gd" id="1_gbbqs"]
 [ext_resource type="FontFile" uid="uid://twl36y2srflp" path="res://fonts/cmu-typewriter/Typewriter/cmuntb.ttf" id="2_u31a6"]
-[ext_resource type="Texture2D" uid="uid://boltrh3yqg4b7" path="res://green.png" id="3_6swvh"]
+[ext_resource type="Texture2D" uid="uid://csb0spwqwqo6s" path="res://mikael_pasta/novidades/assets_puzzles/sinoPreto.png" id="3_1vui0"]
+[ext_resource type="Texture2D" uid="uid://bmkf6c5tfdw7t" path="res://mikael_pasta/novidades/assets_puzzles/sinoBranco.png" id="4_0tho8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0x7no"]
 
 [node name="sinos" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 776.0
-offset_top = 8.0
-offset_right = 816.0
-offset_bottom = 48.0
+offset_right = 64.0
+offset_bottom = 64.0
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -386.0
-offset_top = 54.0
-offset_right = -338.0
-offset_bottom = 102.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 56.0
+offset_bottom = 56.0
 script = ExtResource("1_gbbqs")
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
@@ -121,7 +120,7 @@ offset_left = 0.5
 offset_top = 0.5
 offset_right = 18.5
 offset_bottom = 18.5
-icon = ExtResource("3_6swvh")
+icon = ExtResource("3_1vui0")
 flat = true
 
 [node name="sino2" type="Button" parent="Control"]
@@ -130,7 +129,7 @@ offset_left = 10.5
 offset_top = 0.5
 offset_right = 28.5
 offset_bottom = 18.5
-icon = ExtResource("3_6swvh")
+icon = ExtResource("4_0tho8")
 flat = true
 
 [node name="sino3" type="Button" parent="Control"]
@@ -139,7 +138,7 @@ offset_left = 20.5
 offset_top = 0.5
 offset_right = 38.5
 offset_bottom = 18.5
-icon = ExtResource("3_6swvh")
+icon = ExtResource("3_1vui0")
 flat = true
 
 [node name="sino4" type="Button" parent="Control"]
@@ -148,7 +147,7 @@ offset_left = 30.5
 offset_top = 0.5
 offset_right = 48.5
 offset_bottom = 18.5
-icon = ExtResource("3_6swvh")
+icon = ExtResource("4_0tho8")
 flat = true
 
 [connection signal="pressed" from="Control/sino1" to="Control" method="_on_sino_1_pressed"]

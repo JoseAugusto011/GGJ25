@@ -36,6 +36,8 @@ func _get_drag_data(_at_position):
 func _can_drop_data(_at_position, _data):
 	print("WEB")
 	Matrizes.usandoMAchado = true
+	Matrizes.usandoCopo = true
+	Matrizes.usandoGarrafa = true
 	#if Matrizes.usandoMAchado == true:
 	
 	return _data is Slot

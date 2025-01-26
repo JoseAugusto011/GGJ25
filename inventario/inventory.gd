@@ -40,3 +40,30 @@ func _on_machado_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 				return
 		
 	pass # Replace with function body.
+
+
+func _on_area_copo_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if Input.is_action_just_pressed("click"):
+		for child in grid_container.get_children():
+			if child is Slot and child.slotItemResource == null:
+				var item : Item = Item.new()
+				
+				item.texture = load("res://slot_inventario.png")
+				item.quantity = 0
+				itemArray.append(item)
+				print(itemArray)
+				child.set_item(item)
+				return
+
+func _on_area_garrafa_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if Input.is_action_just_pressed("click"):
+		for child in grid_container.get_children():
+			if child is Slot and child.slotItemResource == null:
+				var item : Item = Item.new()
+				
+				item.texture = load("res://mikael_pasta/novidades/assets_puzzles/garrafaVeneno.png")
+				item.quantity = 0
+				itemArray.append(item)
+				print(itemArray)
+				child.set_item(item)
+				return
