@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=4 uid="uid://ckft3jmndmfsm"]
+[gd_scene load_steps=66 format=4 uid="uid://ckft3jmndmfsm"]
 
 [ext_resource type="Texture2D" uid="uid://pk41iy74vvv7" path="res://novo_fundo/fundo_vazio.png" id="1_t2fe4"]
 [ext_resource type="Texture2D" uid="uid://bt5kl1kd3g076" path="res://novo_fundo/fundo_vazio_2.png" id="2_rs0id"]
@@ -29,9 +29,14 @@
 [ext_resource type="Texture2D" uid="uid://cogojnrnda7wn" path="res://obstaculos_do_jogo/porta_barrada_vazio.png" id="20_3dy13"]
 [ext_resource type="Texture2D" uid="uid://c1vjf6t4lfxes" path="res://itens_do_jogo/armario_paint_vazio.png" id="20_yuyg1"]
 [ext_resource type="Script" path="res://Scenes/porta_quebrar.gd" id="21_3uwp6"]
+[ext_resource type="Texture2D" uid="uid://ba7kv4nypmtsd" path="res://item_levar/sofa_branco.png" id="21_6cvb2"]
+[ext_resource type="Texture2D" uid="uid://dd00dhi1h7odb" path="res://item_levar/sofa_2_branco.png" id="22_txcax"]
 [ext_resource type="Texture2D" uid="uid://deyl6gfnqy13a" path="res://inventario/bolha_inventario.png" id="26_3kddl"]
 [ext_resource type="Texture2D" uid="uid://dkjorf0y23ope" path="res://itens_do_jogo/geladeira.png" id="28_ev8di"]
 [ext_resource type="Texture2D" uid="uid://cbadq2fj1o7tp" path="res://itens_do_jogo/dispensa.png" id="29_ssfet"]
+[ext_resource type="Texture2D" uid="uid://kt4kqv2t865d" path="res://item_levar/quarto_guitarra.png" id="33_1hqvf"]
+[ext_resource type="Texture2D" uid="uid://nb6n83aaur86" path="res://item_levar/janela_um_comodo.png" id="34_3p01a"]
+[ext_resource type="Texture2D" uid="uid://crg4hws11w4g1" path="res://item_levar/janela_um_comodo_dois.png" id="35_8ohup"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b1w8s"]
 texture = ExtResource("1_t2fe4")
@@ -2467,6 +2472,12 @@ texture_region_size = Vector2i(8, 8)
 tile_size = Vector2i(8, 8)
 sources/0 = SubResource("TileSetAtlasSource_15emj")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3sn7l"]
+size = Vector2(23, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w5sda"]
+size = Vector2(13, 17.5001)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="mapa" type="Node2D" parent="."]
@@ -2482,6 +2493,7 @@ tile_map_data = PackedByteArray("AAASACIAAAAKAAAAAAASACMAAAAKAAEAAAASACQAAAAKAAI
 tile_set = SubResource("TileSet_n2wgv")
 
 [node name="player" type="Area2D" parent="."]
+visible = false
 position = Vector2(32, 32)
 collision_mask = 3
 script = ExtResource("8_ff1a0")
@@ -2623,6 +2635,21 @@ texture = ExtResource("19_407gb")
 [node name="ArmarioPaintVazio" type="Sprite2D" parent="itens"]
 position = Vector2(192, 192)
 texture = ExtResource("20_yuyg1")
+
+[node name="sofa_branco" type="Area2D" parent="itens"]
+position = Vector2(448, 64)
+
+[node name="Sprite2D" type="Sprite2D" parent="itens/sofa_branco"]
+texture_filter = 1
+texture = ExtResource("21_6cvb2")
+
+[node name="Sprite2D2" type="Sprite2D" parent="itens/sofa_branco"]
+z_index = -1
+texture = ExtResource("22_txcax")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="itens/sofa_branco"]
+position = Vector2(-32, -19)
+shape = SubResource("RectangleShape2D_0uden")
 
 [node name="obstaculos_cenario" type="Node2D" parent="."]
 
@@ -2791,7 +2818,74 @@ rotation = 3.14159
 texture = ExtResource("29_ssfet")
 vframes = 2
 
+[node name="quarto" type="Area2D" parent="obstaculos_cenario"]
+z_index = 2
+position = Vector2(64, 192)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstaculos_cenario/quarto"]
+position = Vector2(24.5001, -44.4999)
+shape = SubResource("RectangleShape2D_3sn7l")
+
+[node name="Sprite2D" type="Sprite2D" parent="obstaculos_cenario/quarto"]
+texture_filter = 1
+rotation = 3.14159
+texture = ExtResource("33_1hqvf")
+vframes = 2
+
+[node name="armario" type="Area2D" parent="obstaculos_cenario"]
+z_index = 1
+position = Vector2(64, 192)
+rotation = 3.14159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstaculos_cenario/armario"]
+position = Vector2(19.0001, 32.5)
+shape = SubResource("RectangleShape2D_fcdmy")
+
+[node name="Sprite2D" type="Sprite2D" parent="obstaculos_cenario/armario"]
+texture_filter = 1
+rotation = 3.14159
+texture = ExtResource("29_ssfet")
+vframes = 2
+
+[node name="janela" type="Area2D" parent="obstaculos_cenario"]
+z_index = 1
+position = Vector2(64, 192)
+rotation = 3.14159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstaculos_cenario/janela"]
+position = Vector2(33.4999, 32.2501)
+shape = SubResource("RectangleShape2D_w5sda")
+
+[node name="Sprite2D" type="Sprite2D" parent="obstaculos_cenario/janela"]
+texture_filter = 1
+rotation = 3.14159
+texture = ExtResource("34_3p01a")
+vframes = 2
+
+[node name="janela2" type="Area2D" parent="obstaculos_cenario"]
+position = Vector2(192, 64)
+rotation = 3.14159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstaculos_cenario/janela2"]
+position = Vector2(33.4999, 32.2501)
+shape = SubResource("RectangleShape2D_w5sda")
+
+[node name="Sprite2D" type="Sprite2D" parent="obstaculos_cenario/janela2"]
+texture_filter = 1
+rotation = 3.14159
+texture = ExtResource("34_3p01a")
+vframes = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="obstaculos_cenario/janela2"]
+z_index = -1
+texture_filter = 1
+rotation = 3.14159
+texture = ExtResource("35_8ohup")
+vframes = 2
+
 [node name="HUD" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Control" type="Control" parent="HUD"]
 layout_mode = 3
