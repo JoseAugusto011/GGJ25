@@ -1,3 +1,4 @@
+CollisionShape2D
 Sprite2D
 Node2D
 Polygon2D
@@ -7,7 +8,6 @@ Button
 VBoxContainer
 Control
 HBoxContainer
-CollisionShape2D
 Area2D
 AnimatedSprite2D
 TileMapLayer

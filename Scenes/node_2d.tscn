@@ -1,10 +1,11 @@
-[gd_scene load_steps=58 format=4 uid="uid://ckft3jmndmfsm"]
+[gd_scene load_steps=70 format=4 uid="uid://ckft3jmndmfsm"]
 
 [ext_resource type="Texture2D" uid="uid://pk41iy74vvv7" path="res://novo_fundo/fundo_vazio.png" id="1_t2fe4"]
 [ext_resource type="Texture2D" uid="uid://bt5kl1kd3g076" path="res://novo_fundo/fundo_vazio_2.png" id="2_rs0id"]
 [ext_resource type="Texture2D" uid="uid://sh4s85sgpote" path="res://novo_fundo/fundo_aero_vazio.png" id="3_136qd"]
 [ext_resource type="Texture2D" uid="uid://ced7hmnf8m863" path="res://Scenes/bolhas.png" id="4_qdftm"]
 [ext_resource type="Texture2D" uid="uid://b2103ir1rmfmq" path="res://novo_fundo/fundo_aero_vazio_2.png" id="4_qfn5i"]
+[ext_resource type="Texture2D" uid="uid://cdckws03rlx0h" path="res://caixa.png" id="5_dglma"]
 [ext_resource type="Script" path="res://Scenes/circulos_escuros.gd" id="5_h6vdk"]
 [ext_resource type="Texture2D" uid="uid://0vcjbn764dun" path="res://Scenes/circulos.png" id="5_ostnu"]
 [ext_resource type="Texture2D" uid="uid://cojybcog5o1mc" path="res://Scenes/borda_escura.png" id="7_hqpoh"]
@@ -28,9 +29,17 @@
 [ext_resource type="Texture2D" uid="uid://bebkaps53p7cw" path="res://itens_do_jogo/mesa_jantar_vazia.png" id="19_407gb"]
 [ext_resource type="Texture2D" uid="uid://cogojnrnda7wn" path="res://obstaculos_do_jogo/porta_barrada_vazio.png" id="20_3dy13"]
 [ext_resource type="Texture2D" uid="uid://c1vjf6t4lfxes" path="res://itens_do_jogo/armario_paint_vazio.png" id="20_yuyg1"]
+[ext_resource type="Texture2D" uid="uid://gvc5gsa7r4qr" path="res://item_levar/sofa_branco.png" id="22_c3c15"]
+[ext_resource type="Texture2D" uid="uid://bmiwjh7mat6mp" path="res://item_levar/sofa_2_branco.png" id="23_lboqf"]
+[ext_resource type="Texture2D" uid="uid://bgj2lsvxu8yfe" path="res://item_levar/tv_branco.png" id="24_uobj5"]
+[ext_resource type="Texture2D" uid="uid://dprv5qubxg32o" path="res://item_levar/tv_2_branco.png" id="25_04blb"]
 [ext_resource type="Texture2D" uid="uid://deyl6gfnqy13a" path="res://inventario/bolha_inventario.png" id="26_3kddl"]
+[ext_resource type="Texture2D" uid="uid://bkclo4u0x2xit" path="res://item_levar/machado_branco.png" id="26_jqvas"]
 [ext_resource type="Texture2D" uid="uid://dkjorf0y23ope" path="res://itens_do_jogo/geladeira.png" id="28_ev8di"]
 [ext_resource type="Texture2D" uid="uid://cbadq2fj1o7tp" path="res://itens_do_jogo/dispensa.png" id="29_ssfet"]
+[ext_resource type="Texture2D" uid="uid://bjwf6lnrtmtal" path="res://item_levar/quarto_guitarra.png" id="36_q7x0g"]
+[ext_resource type="Texture2D" uid="uid://bm1eluvajqsf1" path="res://item_levar/janela_um_comodo.png" id="37_touqx"]
+[ext_resource type="Texture2D" uid="uid://i0rrsyehalb2" path="res://item_levar/janela_um_comodo_dois.png" id="38_age8x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b1w8s"]
 texture = ExtResource("1_t2fe4")
@@ -2466,6 +2475,15 @@ texture_region_size = Vector2i(8, 8)
 tile_size = Vector2i(8, 8)
 sources/0 = SubResource("TileSetAtlasSource_15emj")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gvua1"]
+size = Vector2(26, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5s0fh"]
+size = Vector2(13, 39)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kaep"]
+size = Vector2(11, 16)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="mapa" type="Node2D" parent="."]
@@ -2480,7 +2498,12 @@ z_index = -2
 tile_map_data = PackedByteArray("AAASACIAAAAKAAAAAAASACMAAAAKAAEAAAASACQAAAAKAAIAAAASACUAAAAKAAMAAAATACIAAAATAAQAAAATACMAAAATAAUAAAATACQAAAATAAYAAAATACUAAAATAAcAAAAUACIAAAAUAAQAAAAUACMAAAAUAAUAAAAUACQAAAAUAAYAAAAUACUAAAAUAAcAAAAVACIAAAANAAAAAAAVACMAAAANAAEAAAAVACQAAAANAAIAAAAVACUAAAANAAMAAAAaABoAAAASAAwAAAAaABsAAAASAA0AAAAaABwAAAASAA4AAAAbABoAAAALAAgAAAAbABsAAAALAAkAAAAbABwAAAALAAoAAAAcABoAAAAMAAgAAAAcABsAAAAMAAkAAAAcABwAAAAMAAoAAAAdABoAAAAVAAwAAAAdABsAAAAVAA0AAAAdABwAAAAVAA4AAAAiAAoAAAAAAAoAAAAiAAsAAAAEAAMAAAAiAAwAAAAEAAQAAAAiAA0AAAAEAAUAAAAjAAoAAAABAAoAAAAjAAsAAAAFAAMAAAAjAAwAAAAFAAQAAAAjAA0AAAAFAAUAAAAkAAoAAAACAAoAAAAkAAsAAAAGAAMAAAAkAAwAAAAGAAQAAAAkAA0AAAAGAAUAAAAlAAoAAAADAAoAAAAlAAsAAAAHAAMAAAAlAAwAAAAHAAQAAAAlAA0AAAAHAAUAAAAaAAIAAAAcAAIAAAAaAAMAAAAcAAMAAAAaAAQAAAAcAAQAAAAaAAUAAAAcAAUAAAAbAAIAAAAdAAIAAAAbAAMAAAAdAAMAAAAbAAQAAAAdAAQAAAAbAAUAAAAdAAUAAAAcAAIAAAAeAAIAAAAcAAMAAAAeAAMAAAAcAAQAAAAeAAQAAAAcAAUAAAAeAAUAAAAdAAIAAAAfAAIAAAAdAAMAAAAfAAMAAAAdAAQAAAAfAAQAAAAdAAUAAAAfAAUAAAASAAoAAAAAAAoAAAASAAsAAAAAAAsAAAASAAwAAAAAAAwAAAASAA0AAAAAAA0AAAATAAoAAAABAAoAAAATAAsAAAABAAsAAAATAAwAAAABAAwAAAATAA0AAAABAA0AAAAUAAoAAAACAAoAAAAUAAsAAAACAAsAAAAUAAwAAAACAAwAAAAUAA0AAAACAA0AAAAVAAoAAAADAAoAAAAVAAsAAAADAAsAAAAVAAwAAAADAAwAAAAVAA0AAAADAA0AAAAKAAIAAAAcAAIAAAAKAAMAAAAYAAsAAAAKAAQAAAAYAAwAAAAKAAUAAAAYAA0AAAALAAIAAAAdAAIAAAALAAMAAAAZAAsAAAALAAQAAAAZAAwAAAALAAUAAAAZAA0AAAAMAAIAAAAeAAIAAAAMAAMAAAAaAAsAAAAMAAQAAAAaAAwAAAAMAAUAAAAaAA0AAAANAAIAAAAfAAIAAAANAAMAAAAbAAsAAAANAAQAAAAbAAwAAAANAAUAAAAbAA0AAAAaAAoAAAASAAwAAAAaAAsAAAASAA0AAAAaAAwAAAASAA4AAAAaAA0AAAASAA8AAAAbAAoAAAALAAgAAAAbAAsAAAALAAkAAAAbAAwAAAALAAoAAAAbAA0AAAALAAsAAAAcAAoAAAAMAAgAAAAcAAsAAAAMAAkAAAAcAAwAAAAMAAoAAAAcAA0AAAAMAAsAAAAdAAoAAAAVAAwAAAAdAAsAAAAVAA0AAAAdAAwAAAAVAA4AAAAdAA0AAAAVAA8AAAAbAB0AAAATAA8AAAAcAB0AAAAUAA8AAAAaAB0AAAASAA8AAAAdAB0AAAAVAA8AAAASABIAAAASAAAAAAASABMAAAASAAEAAAASABQAAAASAAIAAAASABUAAAASAAMAAAATABIAAAATAAAAAAATABMAAAATAAEAAAATABQAAAATAAIAAAATABUAAAATAAMAAAAUABIAAAAUAAAAAAAUABMAAAAUAAEAAAAUABQAAAAUAAIAAAAUABUAAAAUAAMAAAAVABIAAAAVAAAAAAAVABMAAAAVAAEAAAAVABQAAAAVAAIAAAAVABUAAAAVAAMAAAASABgAAAAAAAAAAAASABkAAAAAAAEAAAATABgAAAABAAAAAAATABkAAAABAAEAAAAUABgAAAACAAAAAAAUABkAAAACAAEAAAAVABgAAAADAAAAAAAVABkAAAADAAEAAAAaABAAAAAcAAgAAAAaABEAAAAcAAkAAAAbABAAAAAdAAgAAAAbABEAAAAdAAkAAAAcABAAAAAeAAgAAAAcABEAAAAeAAkAAAAdABAAAAAfAAgAAAAdABEAAAAfAAkAAAA6AAMAAQAYAAsAAAA6AAQAAQAYAAwAAAA6AAUAAQAYAA0AAAA7AAMAAQAZAAsAAAA7AAQAAQAZAAwAAAA7AAUAAQAZAA0AAAA8AAMAAQAaAAsAAAA8AAQAAQAaAAwAAAA8AAUAAQAaAA0AAAA9AAMAAQAbAAsAAAA9AAQAAQAbAAwAAAA9AAUAAQAbAA0AAAA6AAIAAQAcAAIAAAA7AAIAAQAdAAIAAAA8AAIAAQAeAAIAAAA9AAIAAQAfAAIAAABKAAIAAQAcAAIAAABKAAMAAQAcAAMAAABKAAQAAQAcAAQAAABKAAUAAQAcAAUAAABLAAIAAQAdAAIAAABLAAMAAQAdAAMAAABLAAQAAQAdAAQAAABLAAUAAQAdAAUAAABMAAIAAQAeAAIAAABMAAMAAQAeAAMAAABMAAQAAQAeAAQAAABMAAUAAQAeAAUAAABNAAIAAQAfAAIAAABNAAMAAQAfAAMAAABNAAQAAQAfAAQAAABNAAUAAQAfAAUAAABSAAoAAQAAAAoAAABSAAsAAQAEAAMAAABSAAwAAQAEAAQAAABSAA0AAQAEAAUAAABTAAoAAQABAAoAAABTAAsAAQAFAAMAAABTAAwAAQAFAAQAAABTAA0AAQAFAAUAAABUAAoAAQACAAoAAABUAAsAAQAGAAMAAABUAAwAAQAGAAQAAABUAA0AAQAGAAUAAABVAAoAAQADAAoAAABVAAsAAQAHAAMAAABVAAwAAQAHAAQAAABVAA0AAQAHAAUAAABCAAoAAQAAAAoAAABCAAsAAQAAAAsAAABCAAwAAQAAAAwAAABCAA0AAQAAAA0AAABDAAoAAQABAAoAAABDAAsAAQABAAsAAABDAAwAAQABAAwAAABDAA0AAQABAA0AAABEAAoAAQACAAoAAABEAAsAAQACAAsAAABEAAwAAQACAAwAAABEAA0AAQACAA0AAABFAAoAAQADAAoAAABFAAsAAQADAAsAAABFAAwAAQADAAwAAABFAA0AAQADAA0AAABKAAoAAQASAAwAAABKAAsAAQASAA0AAABKAAwAAQASAA4AAABKAA0AAQASAA8AAABLAAoAAQALAAgAAABLAAsAAQALAAkAAABLAAwAAQALAAoAAABLAA0AAQALAAsAAABMAAoAAQAMAAgAAABMAAsAAQAMAAkAAABMAAwAAQAMAAoAAABMAA0AAQAMAAsAAABNAAoAAQAVAAwAAABNAAsAAQAVAA0AAABNAAwAAQAVAA4AAABNAA0AAQAVAA8AAABCABIAAQASAAAAAABCABMAAQASAAEAAABCABQAAQASAAIAAABCABUAAQASAAMAAABDABIAAQATAAAAAABDABMAAQATAAEAAABDABQAAQATAAIAAABDABUAAQATAAMAAABEABIAAQAUAAAAAABEABMAAQAUAAEAAABEABQAAQAUAAIAAABEABUAAQAUAAMAAABFABIAAQAVAAAAAABFABMAAQAVAAEAAABFABQAAQAVAAIAAABFABUAAQAVAAMAAABKABoAAQASAAwAAABKABsAAQASAA0AAABKABwAAQASAA4AAABKAB0AAQASAA8AAABLABoAAQATAAwAAABLABsAAQATAA0AAABLABwAAQATAA4AAABLAB0AAQATAA8AAABMABoAAQAUAAwAAABMABsAAQAUAA0AAABMABwAAQAUAA4AAABMAB0AAQAUAA8AAABNABoAAQAVAAwAAABNABsAAQAVAA0AAABNABwAAQAVAA4AAABNAB0AAQAVAA8AAABCACIAAQAKAAAAAABCACMAAQAKAAEAAABCACQAAQAKAAIAAABCACUAAQAKAAMAAABDACIAAQALAAAAAABDACMAAQALAAEAAABDACQAAQALAAIAAABDACUAAQALAAMAAABEACIAAQAMAAAAAABEACMAAQAMAAEAAABEACQAAQAMAAIAAABEACUAAQAMAAMAAABFACIAAQANAAAAAABFACMAAQANAAEAAABFACQAAQANAAIAAABFACUAAQANAAMAAAA=")
 tile_set = SubResource("TileSet_n2wgv")
 
+[node name="Caixa" type="Sprite2D" parent="mapa"]
+position = Vector2(-224, 160)
+texture = ExtResource("5_dglma")
+
 [node name="player" type="Area2D" parent="."]
+visible = false
 position = Vector2(32, 32)
 collision_mask = 3
 script = ExtResource("8_ff1a0")
@@ -2622,6 +2645,66 @@ texture = ExtResource("19_407gb")
 [node name="ArmarioPaintVazio" type="Sprite2D" parent="itens"]
 position = Vector2(192, 192)
 texture = ExtResource("20_yuyg1")
+
+[node name="sofa_branco" type="Area2D" parent="itens"]
+position = Vector2(448, 64)
+
+[node name="Sprite2D" type="Sprite2D" parent="itens/sofa_branco"]
+texture_filter = 1
+position = Vector2(96, 0)
+texture = ExtResource("22_c3c15")
+flip_h = true
+hframes = 2
+
+[node name="Sprite2D3" type="Sprite2D" parent="itens/sofa_branco"]
+texture_filter = 1
+position = Vector2(-48, 0)
+texture = ExtResource("22_c3c15")
+flip_h = true
+hframes = 4
+frame = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="itens/sofa_branco"]
+visible = false
+z_index = -1
+texture = ExtResource("23_lboqf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="itens/sofa_branco"]
+position = Vector2(-32, -19)
+shape = SubResource("RectangleShape2D_0uden")
+
+[node name="tv_branca" type="Area2D" parent="itens"]
+position = Vector2(448, 64)
+rotation = 3.14159
+
+[node name="Sprite2D" type="Sprite2D" parent="itens/tv_branca"]
+texture_filter = 1
+texture = ExtResource("24_uobj5")
+
+[node name="Sprite2D2" type="Sprite2D" parent="itens/tv_branca"]
+z_index = -1
+texture = ExtResource("25_04blb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="itens/tv_branca"]
+position = Vector2(-32, -19)
+shape = SubResource("RectangleShape2D_0uden")
+
+[node name="mancha" type="Area2D" parent="itens"]
+position = Vector2(448, 64)
+
+[node name="Sprite2D" type="Sprite2D" parent="itens/mancha"]
+texture_filter = 1
+texture = ExtResource("26_jqvas")
+vframes = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="itens/mancha"]
+visible = false
+z_index = -1
+texture = ExtResource("11_xa247")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="itens/mancha"]
+position = Vector2(-32, -19)
+shape = SubResource("RectangleShape2D_0uden")
 
 [node name="obstaculos_cenario" type="Node2D" parent="."]
 
@@ -2789,7 +2872,72 @@ rotation = 3.14159
 texture = ExtResource("29_ssfet")
 vframes = 2
 
+[node name="quarto" type="Area2D" parent="obstaculos_cenario"]
+z_index = 1
+position = Vector2(64, 192)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstaculos_cenario/quarto"]
+position = Vector2(26, -44.5)
+shape = SubResource("RectangleShape2D_gvua1")
+
+[node name="Sprite2D" type="Sprite2D" parent="obstaculos_cenario/quarto"]
+texture_filter = 1
+rotation = 3.14159
+texture = ExtResource("36_q7x0g")
+vframes = 2
+
+[node name="armario" type="Area2D" parent="obstaculos_cenario"]
+position = Vector2(64, 192)
+rotation = 3.14159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstaculos_cenario/armario"]
+position = Vector2(19.4999, 32.5001)
+shape = SubResource("RectangleShape2D_5s0fh")
+
+[node name="Sprite2D" type="Sprite2D" parent="obstaculos_cenario/armario"]
+texture_filter = 1
+rotation = 3.14159
+texture = ExtResource("29_ssfet")
+vframes = 2
+
+[node name="janela" type="Area2D" parent="obstaculos_cenario"]
+position = Vector2(64, 192)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstaculos_cenario/janela"]
+position = Vector2(31.5, 32)
+shape = SubResource("RectangleShape2D_4kaep")
+
+[node name="Sprite2D" type="Sprite2D" parent="obstaculos_cenario/janela"]
+texture_filter = 1
+rotation = 3.14159
+texture = ExtResource("37_touqx")
+vframes = 2
+
+[node name="janela2" type="Area2D" parent="obstaculos_cenario"]
+position = Vector2(192, 64)
+rotation = 3.14159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstaculos_cenario/janela2"]
+position = Vector2(31.5, 32)
+shape = SubResource("RectangleShape2D_4kaep")
+
+[node name="Sprite2D" type="Sprite2D" parent="obstaculos_cenario/janela2"]
+texture_filter = 1
+rotation = 3.14159
+texture = ExtResource("37_touqx")
+vframes = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="obstaculos_cenario/janela2"]
+z_index = -2
+texture_filter = 1
+rotation = 3.14159
+texture = ExtResource("38_age8x")
+vframes = 2
+
 [node name="HUD" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Control" type="Control" parent="HUD"]
 layout_mode = 3
@@ -2815,6 +2963,7 @@ layout_mode = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD/Control"]
 custom_minimum_size = Vector2(20, 20)
+layout_mode = 0
 offset_left = 534.0
 offset_right = 586.0
 offset_bottom = 164.0
