@@ -1,0 +1,157 @@
+[gd_scene load_steps=5 format=3 uid="uid://m80srs4kcv70"]
+
+[ext_resource type="Script" path="res://Scenes/sino.gd" id="1_gbbqs"]
+[ext_resource type="FontFile" uid="uid://twl36y2srflp" path="res://fonts/cmu-typewriter/Typewriter/cmuntb.ttf" id="2_u31a6"]
+[ext_resource type="Texture2D" uid="uid://boltrh3yqg4b7" path="res://green.png" id="3_6swvh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0x7no"]
+
+[node name="sinos" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 776.0
+offset_top = 8.0
+offset_right = 816.0
+offset_bottom = 48.0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -386.0
+offset_top = 54.0
+offset_right = -338.0
+offset_bottom = 102.0
+script = ExtResource("1_gbbqs")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = 4.5
+offset_top = 19.0
+offset_right = 14.5
+offset_bottom = 29.0
+
+[node name="ColorRect4" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = 34.5
+offset_top = 19.0
+offset_right = 44.5
+offset_bottom = 29.0
+
+[node name="ColorRect3" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = 24.5
+offset_top = 19.0
+offset_right = 34.5
+offset_bottom = 29.0
+
+[node name="ColorRect2" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = 14.5
+offset_top = 19.0
+offset_right = 24.5
+offset_bottom = 29.0
+
+[node name="Label" type="Label" parent="Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 4.5
+offset_top = 16.5
+offset_right = 14.5
+offset_bottom = 31.5
+theme_override_colors/font_color = Color(0, 0.627451, 0, 1)
+theme_override_fonts/font = ExtResource("2_u31a6")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0x7no")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 171
+
+[node name="Label2" type="Label" parent="Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 14.5
+offset_top = 16.5
+offset_right = 24.5
+offset_bottom = 31.5
+theme_override_colors/font_color = Color(0, 0.627451, 0, 1)
+theme_override_fonts/font = ExtResource("2_u31a6")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0x7no")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 171
+
+[node name="Label3" type="Label" parent="Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 24.5
+offset_top = 16.5
+offset_right = 34.5
+offset_bottom = 31.5
+theme_override_colors/font_color = Color(0, 0.627451, 0, 1)
+theme_override_fonts/font = ExtResource("2_u31a6")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0x7no")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 171
+
+[node name="Label4" type="Label" parent="Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 34.5
+offset_top = 16.5
+offset_right = 44.5
+offset_bottom = 31.5
+theme_override_colors/font_color = Color(0, 0.627451, 0, 1)
+theme_override_fonts/font = ExtResource("2_u31a6")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0x7no")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 171
+
+[node name="sino1" type="Button" parent="Control"]
+layout_mode = 2
+offset_left = 0.5
+offset_top = 0.5
+offset_right = 18.5
+offset_bottom = 18.5
+icon = ExtResource("3_6swvh")
+flat = true
+
+[node name="sino2" type="Button" parent="Control"]
+layout_mode = 2
+offset_left = 10.5
+offset_top = 0.5
+offset_right = 28.5
+offset_bottom = 18.5
+icon = ExtResource("3_6swvh")
+flat = true
+
+[node name="sino3" type="Button" parent="Control"]
+layout_mode = 2
+offset_left = 20.5
+offset_top = 0.5
+offset_right = 38.5
+offset_bottom = 18.5
+icon = ExtResource("3_6swvh")
+flat = true
+
+[node name="sino4" type="Button" parent="Control"]
+layout_mode = 2
+offset_left = 30.5
+offset_top = 0.5
+offset_right = 48.5
+offset_bottom = 18.5
+icon = ExtResource("3_6swvh")
+flat = true
+
+[connection signal="pressed" from="Control/sino1" to="Control" method="_on_sino_1_pressed"]
+[connection signal="pressed" from="Control/sino2" to="Control" method="_on_sino_2_pressed"]
+[connection signal="pressed" from="Control/sino3" to="Control" method="_on_sino_3_pressed"]
+[connection signal="pressed" from="Control/sino4" to="Control" method="_on_sino_4_pressed"]

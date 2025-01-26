@@ -1,0 +1,175 @@
+[gd_scene load_steps=9 format=3 uid="uid://bpr8mlc3fjugw"]
+
+[ext_resource type="Script" path="res://Scenes/senha.gd" id="1_5y2ne"]
+[ext_resource type="Script" path="res://Scenes/cadeado.gd" id="2_qfwqn"]
+[ext_resource type="FontFile" uid="uid://twl36y2srflp" path="res://fonts/cmu-typewriter/Typewriter/cmuntb.ttf" id="3_66uhd"]
+[ext_resource type="Texture2D" uid="uid://boltrh3yqg4b7" path="res://green.png" id="4_decoj"]
+[ext_resource type="Texture2D" uid="uid://b2cpmfoc5tagf" path="res://red.png" id="5_ftp7d"]
+[ext_resource type="Script" path="res://Scenes/control_2.gd" id="6_eq2i2"]
+[ext_resource type="Script" path="res://Scenes/control_3.gd" id="7_ggagm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0x7no"]
+
+[node name="Senha" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_5y2ne")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 520.0
+offset_top = 8.0
+offset_right = 568.0
+offset_bottom = 56.0
+script = ExtResource("2_qfwqn")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = 4.5
+offset_top = 19.0
+offset_right = 14.5
+offset_bottom = 29.0
+
+[node name="Label" type="Label" parent="Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 4.5
+offset_top = 16.5
+offset_right = 14.5
+offset_bottom = 31.5
+theme_override_colors/font_color = Color(0, 0.627451, 0, 1)
+theme_override_fonts/font = ExtResource("3_66uhd")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0x7no")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 171
+
+[node name="ButtonVerde" type="Button" parent="Control"]
+layout_mode = 2
+offset_left = 0.5
+offset_top = 0.5
+offset_right = 18.5
+offset_bottom = 18.5
+icon = ExtResource("4_decoj")
+flat = true
+
+[node name="ButtonRed" type="Button" parent="Control"]
+layout_mode = 2
+offset_left = 0.5
+offset_top = 29.5
+offset_right = 18.5
+offset_bottom = 47.5
+icon = ExtResource("5_ftp7d")
+flat = true
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 534.5
+offset_top = 8.0
+offset_right = 582.5
+offset_bottom = 56.0
+script = ExtResource("6_eq2i2")
+
+[node name="ColorRect" type="ColorRect" parent="Control2"]
+layout_mode = 0
+offset_left = 4.5
+offset_top = 19.0
+offset_right = 14.5
+offset_bottom = 29.0
+
+[node name="Label" type="Label" parent="Control2"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 4.5
+offset_top = 16.5
+offset_right = 14.5
+offset_bottom = 31.5
+theme_override_colors/font_color = Color(0, 0.627451, 0, 1)
+theme_override_fonts/font = ExtResource("3_66uhd")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0x7no")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 171
+
+[node name="ButtonVerde" type="Button" parent="Control2"]
+layout_mode = 2
+offset_left = 0.5
+offset_top = 0.5
+offset_right = 18.5
+offset_bottom = 18.5
+icon = ExtResource("4_decoj")
+flat = true
+
+[node name="ButtonRed" type="Button" parent="Control2"]
+layout_mode = 2
+offset_left = 0.5
+offset_top = 29.5
+offset_right = 18.5
+offset_bottom = 47.5
+icon = ExtResource("5_ftp7d")
+flat = true
+
+[node name="Control3" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 549.0
+offset_top = 8.0
+offset_right = 597.0
+offset_bottom = 56.0
+script = ExtResource("7_ggagm")
+
+[node name="ColorRect" type="ColorRect" parent="Control3"]
+layout_mode = 0
+offset_left = 4.5
+offset_top = 19.0
+offset_right = 14.5
+offset_bottom = 29.0
+
+[node name="Label" type="Label" parent="Control3"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 4.5
+offset_top = 16.5
+offset_right = 14.5
+offset_bottom = 31.5
+theme_override_colors/font_color = Color(0, 0.627451, 0, 1)
+theme_override_fonts/font = ExtResource("3_66uhd")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0x7no")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 171
+
+[node name="ButtonVerde" type="Button" parent="Control3"]
+layout_mode = 2
+offset_left = 0.5
+offset_top = 0.5
+offset_right = 18.5
+offset_bottom = 18.5
+icon = ExtResource("4_decoj")
+flat = true
+
+[node name="ButtonRed" type="Button" parent="Control3"]
+layout_mode = 2
+offset_left = 0.5
+offset_top = 29.5
+offset_right = 18.5
+offset_bottom = 47.5
+icon = ExtResource("5_ftp7d")
+flat = true
+
+[connection signal="pressed" from="Control/ButtonVerde" to="Control" method="_on_button_verde_pressed"]
+[connection signal="pressed" from="Control/ButtonRed" to="Control" method="_on_button_red_pressed"]
+[connection signal="pressed" from="Control2/ButtonVerde" to="Control2" method="_on_button_verde_pressed"]
+[connection signal="pressed" from="Control2/ButtonRed" to="Control2" method="_on_button_red_pressed"]
+[connection signal="pressed" from="Control3/ButtonVerde" to="Control3" method="_on_button_verde_pressed"]
+[connection signal="pressed" from="Control3/ButtonRed" to="Control3" method="_on_button_red_pressed"]

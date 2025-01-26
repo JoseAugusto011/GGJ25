@@ -1,0 +1,13 @@
+Sprite2D
+Node2D
+Polygon2D
+TextureRect
+CanvasModulate
+Button
+VBoxContainer
+Control
+HBoxContainer
+CollisionShape2D
+Area2D
+AnimatedSprite2D
+TileMapLayer
