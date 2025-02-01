@@ -206,15 +206,7 @@ func InputMovement():
 			get_node("com_murro").disabled= true"""
 	
 	if Input.is_action_just_released("click"):
-		
-			Matrizes.soltou = true 
-			print(".")
-			
-	if Input.is_action_just_pressed("click"):
-		
-		Matrizes.soltou = false
-		print(";")
-	#$".".position.x = 384 * (PontoCardeal + xBase * 4)
+		Matrizes.atual = ""
 	
 
 # Called when the node enters the scene tree for the first time.
@@ -262,23 +254,6 @@ func _on_button_3_pressed() -> void:
 	$".".position.x = (xBase+x_extra)*128 -96 + cardeal_x
 
 
-func _on_porta_mouse_entered() :
-	
-	if Matrizes.usandoMAchado:		
-		Matrizes.portaDestruida = true
-	return true
-	
-
-func _on_porta_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	#if Input.is_action_just_pressed("click"):
-		if Machado.on_machado:
-			
-			if _on_porta_mouse_entered():
-				
-				Matrizes.portaDestruida = true
-				
-				
-	
 
 
 func _on_caixa_entrada_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:

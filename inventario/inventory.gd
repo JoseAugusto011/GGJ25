@@ -3,13 +3,14 @@ extends PanelContainer
 @onready var grid_container = $MarginContainer/GridContainer
 @export var itemArray: Array[Item]
 
-func add_item_resource() -> void:
+func add_item(objeto,imagem,quantidade) -> void:
 	for child in grid_container.get_children():
 		if child is Slot and child.slotItemResource == null:
 			var item : Item = Item.new()
-	
-			item.texture = load("res://icon.svg")
-			item.quantity = randi_range(1, 20)
+			
+			item.nome = objeto
+			item.texture = load(imagem)
+			item.quantity = quantidade
 	
 			itemArray.append(item)
 			
@@ -22,48 +23,11 @@ func clear_all_inventory_items() -> void:
 	for child in grid_container.get_children():
 		if child is Slot:
 			child.set_data_empty()
-
-
-
-
-func _on_machado_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if Input.is_action_just_pressed("click"):
-		for child in grid_container.get_children():
-			if child is Slot and child.slotItemResource == null:
-				var item : Item = Item.new()
-		
-				item.texture = load("res://itens_do_jogo/machado_icone.png")
-				item.quantity = 0
-				itemArray.append(item)
-				print(itemArray)
-				child.set_item(item)
-				return
-		
-	pass # Replace with function body.
-
-
-func _on_area_copo_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if Input.is_action_just_pressed("click"):
-		for child in grid_container.get_children():
-			if child is Slot and child.slotItemResource == null:
-				var item : Item = Item.new()
-				
-				item.texture = load("res://slot_inventario.png")
-				item.quantity = 0
-				itemArray.append(item)
-				print(itemArray)
-				child.set_item(item)
-				return
-
-func _on_area_garrafa_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if Input.is_action_just_pressed("click"):
-		for child in grid_container.get_children():
-			if child is Slot and child.slotItemResource == null:
-				var item : Item = Item.new()
-				
-				item.texture = load("res://mikael_pasta/novidades/assets_puzzles/garrafaVeneno.png")
-				item.quantity = 0
-				itemArray.append(item)
-				print(itemArray)
-				child.set_item(item)
-				return
+			
+			
+func _process(delta: float) -> void:
+	if Matrizes.adicionar:
+		print("adicionar")
+		add_item(Matrizes.item_nome, Matrizes.item_texture, Matrizes.item_quantidade)
+		Matrizes.adicionar = false
+	pass

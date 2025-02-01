@@ -1,6 +1,5 @@
 extends Area2D
 
-static var on_machado = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,12 +9,13 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
-
+	
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if Input.is_action_just_pressed("click"):
 		print("Pegou Machado")
-		on_machado = true
+		Matrizes.item_nome = "machado"
+		Matrizes.item_quantidade = 0
+		Matrizes.item_texture = "res://itens_do_jogo/machado_icone.png"
+		Matrizes.adicionar = true
 		queue_free()
-		
 	

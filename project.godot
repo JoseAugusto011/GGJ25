@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 Matrizes="*res://Scenes/matrizes.gd"
-Machado="*res://itens_do_jogo/machado.gd"
 
 [display]
 
